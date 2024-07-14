@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: inventory-service
+  name: customer-facing-web-server
 spec:
   selector:
-    app: inventory-service
+    app: customer-facing-web-server
   ports:
   - port: 3000
     targetPort: 3000

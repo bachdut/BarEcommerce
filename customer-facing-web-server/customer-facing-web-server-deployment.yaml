@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: inventory-service
+  name: customer-facing-web-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: inventory-service
+      app: customer-facing-web-server
   template:
     metadata:
       labels:
-        app: inventory-service
+        app: customer-facing-web-server
     spec:
       containers:
-      - name: inventory-service
-        image: achdutbar/inventory-service:latest
+      - name: customer-facing-web-server
+        image: achdutbar/customer-facing-web-server:latest
         ports:
         - containerPort: 3000
         env:
