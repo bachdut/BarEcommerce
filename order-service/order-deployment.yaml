@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order-service
+        image: achdutbar/order-service:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: KAFKA_BROKER
+          value: kafka:9092
