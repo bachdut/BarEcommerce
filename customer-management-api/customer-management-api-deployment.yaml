@@ -19,6 +19,13 @@ spec:
         - containerPort: 3000
         env:
         - name: MONGO_URI
-          value: mongodb://mongodb:27017/shop
+          value: "mongodb://mongodb:27017/shop"
         - name: KAFKA_BROKER
-          value: kafka:9092
+          value: "kafka:9092"
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "200Mi"
+          limits:
+            cpu: "500m"
+            memory: "500Mi"

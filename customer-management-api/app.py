@@ -26,6 +26,10 @@ def consume_purchases():
 
 threading.Thread(target=consume_purchases, daemon=True).start()
 
+@app.route('/')
+def index():
+    return "Welcome to the Customer Management API"
+
 @app.route('/purchases', methods=['GET'])
 def get_purchases():
     purchases = mongo.db.purchases.find()

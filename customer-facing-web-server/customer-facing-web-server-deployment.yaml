@@ -19,4 +19,11 @@ spec:
         - containerPort: 3000
         env:
         - name: KAFKA_BROKER
-          value: kafka:9092
+          value: "kafka:9092"
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "200Mi"
+          limits:
+            cpu: "500m"
+            memory: "500Mi"
