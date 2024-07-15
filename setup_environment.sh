@@ -45,4 +45,11 @@ else
   echo "Terraform is already installed."
 fi
 
+#Edit etc/hosts for local connection to the app
+echo "127.0.0.1 customer-facing-web-server.local" | sudo tee -a /etc/hosts
+echo "127.0.0.1 customer-management-api.local" | sudo tee -a /etc/hosts
+
+echo "Hosts file updated."
+
 echo "All necessary tools are installed and ready to use."
+

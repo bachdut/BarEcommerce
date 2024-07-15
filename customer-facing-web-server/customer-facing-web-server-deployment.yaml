@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-facing-web-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-facing-web-server
+  template:
+    metadata:
+      labels:
+        app: customer-facing-web-server
+    spec:
+      containers:
+      - name: customer-facing-web-server
+        image: achdutbar/customer-facing-web-server:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: KAFKA_BROKER
+          value: "kafka:9092"
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "200Mi"
+          limits:
+            cpu: "500m"
+            memory: "500Mi"
