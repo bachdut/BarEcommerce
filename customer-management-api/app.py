@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from flask_pymongo import PyMongo
 from kafka import KafkaConsumer
 import json
 import threading
 
 app = Flask(__name__)
+CORS(app)
 
 app.config["MONGO_URI"] = "mongodb://mongodb:27017/shop"
 mongo = PyMongo(app)
