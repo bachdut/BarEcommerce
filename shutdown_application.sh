@@ -25,6 +25,7 @@ kubectl delete -f customer-facing-web-server/customer-facing-web-server-service.
 kubectl delete -f customer-facing-web-server/customer-facing-web-server-deployment.yaml
 
 # Delete Customer UI
+kubectl delete -f autoscaling/customer-ui-hpa.yaml
 kubectl delete -f customer-ui/customer-ui-service.yaml
 kubectl delete -f customer-ui/customer-ui-deployment.yaml
 

@@ -17,3 +17,11 @@ spec:
         image: wurstmeister/zookeeper:latest
         ports:
         - containerPort: 2181
+        readinessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - "echo ruok | nc localhost 2181 | grep imok"
+          initialDelaySeconds: 10
+          periodSeconds: 5

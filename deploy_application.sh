@@ -8,6 +8,7 @@ wait_for_pods() {
     if [ -z "$not_ready_pods" ]; then
       echo "All pods are running and ready."
       echo "Application deployed successfully."
+      echo "You can start the port forwarding now..."
       break
     else
       echo "The following pods are not yet running or not ready:"
@@ -26,6 +27,8 @@ kubectl apply -f mongodb/mongodb-service.yaml
 kubectl apply -f kafka/kafka-deployment.yaml
 kubectl apply -f kafka/kafka-service.yaml
 
+sleep 3
+
 # Deploy Zookeeper
 kubectl apply -f kafka/zookeeper-deployment.yaml
 kubectl apply -f kafka/zookeeper-service.yaml
@@ -37,6 +40,7 @@ kubectl apply -f metrics-server/metrics-server-service.yaml
 # Deploy Customer UI
 kubectl apply -f customer-ui/customer-ui-deployment.yaml
 kubectl apply -f customer-ui/customer-ui-service.yaml
+kubectl apply -f autoscaling/customer-ui-hpa.yaml
 
 # Deploy Customer Facing Web Server
 kubectl apply -f customer-facing-web-server/customer-facing-web-server-deployment.yaml
