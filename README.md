@@ -19,7 +19,7 @@ Before you begin, ensure you have the following installed on your MacBook:
 
 
 2. **Run the Setup Script**:
-   setup_environment.sh script will install necessary tools like Node.js, npm, and kubectl if they are not already installed. Make the script executable and run it:
+   setup_environment.sh script will install necessary tools, homebrew and kubectl if they are not already installed. Make the script executable and run it:
    ```sh
    chmod +x setup_environment.sh
    ./setup_environment.sh
