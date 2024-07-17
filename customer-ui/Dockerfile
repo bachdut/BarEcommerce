@@ -1,4 +1,4 @@
-# Use a lighter base image for building the application (to avoid long processing times)
+# Use a lighter base image for building the application
 FROM node:14-alpine AS builder
 
 # Set the working directory inside the container
