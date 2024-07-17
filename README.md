@@ -27,11 +27,16 @@ Before you begin, ensure you have the following installed on your MacBook:
 
 3. **Enable Kubernetes in Docker Desktop**
 
-Ensure Kubernetes is enabled in Docker Desktop:
+	Ensure Kubernetes is enabled in Docker Desktop:
+
 	•	Go to Docker Desktop settings
+
 	•	Select “Kubernetes” from the left-hand menu
+
 	•	Check “Enable Kubernetes”
+
 	•	Apply and restart Docker if necessary
+
 
 
 
@@ -42,8 +47,8 @@ Ensure Kubernetes is enabled in Docker Desktop:
    bash ./deploy_application.sh
    ```
 
-5. ***Run Port Forwarding to access the service locally**:
-   In order to expose the app locally run those commands in 3 different terminals.
+5. **Run Port Forwarding to access the service locally**:
+   In order to expose the app locally, run those commands in 3 different terminals:
    ```sh
    kubectl port-forward service/customer-management-api 8081:3000
    kubectl port-forward service/customer-facing-web-server 8080:3000
@@ -51,16 +56,22 @@ Ensure Kubernetes is enabled in Docker Desktop:
 
 
 5. **Access the Application**:
-   Once the application is up and running, you can access it in your web browser at `http://localhost:8082/`.
+   Once the application is up and running, you can access it in your web browser at:
 
-6. **Run Tests**:
+    `http://localhost:8082/`.
+
+7. **Run Tests**:
    To run the tests for the application, use the following command:
-   you can set a custom buy details for the application: 
-   name: Messi,  user id: 4, price: 3000, timestamp: 2024-07-15T10:00:00Z
-   And then click on Buy.
-   After that, you can click on the Get All User Buys in order to see the purchase history.
 
-7. **Shutting down the app**:
+   you can set a custom buy details for the application: 
+
+   name: Messi,  user id: 4, price: 3000, timestamp: 2024-07-15T10:00:00Z
+
+   And then click on **Buy**.
+
+   After that, you can click on the **Get All User Buys** in order to see the purchase history.
+
+8. **Shutting down the app**:
    Run those commands:
    ```sh
    chmod +x shutdown_application.sh
