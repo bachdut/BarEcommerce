@@ -88,7 +88,8 @@ Before you begin, ensure you have the following installed on your MacBook:
 
 10. **Microservices Diagram**:
 
- ![WhatsApp Image 2024-07-17 at 13 30 19](https://github.com/user-attachments/assets/a9b738c3-1bef-46a8-af33-a73fb52bf8b1)
+    ![9b1172f7-181d-49e1-b56c-53f6ec9e3038](https://github.com/user-attachments/assets/cf27ffda-122d-45e5-bb95-7d22c60f031f)
+
 
 
 	
