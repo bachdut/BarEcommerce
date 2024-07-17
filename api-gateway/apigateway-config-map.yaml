@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apigateway-config
+  namespace: default
+data:
+  kong.yml: |
+    _format_version: "1.1"
+    services:
+    - name: customer-facing-web-server
+      url: http://customer-facing-web-server:3000
+      routes:
+      - name: customer-facing-web-server-route
+        hosts:
+        - customer-facing-web-server.local
+
+    - name: customer-management-api
+      url: http://customer-management-api:3000
+      routes:
+      - name: customer-management-api-route
+        hosts:
+        - customer-management-api.local
+
+    - name: customer-ui
+      url: http://customer-ui:80
+      routes:
+      - name: customer-ui-route
+        hosts:
+        - customer-ui.local

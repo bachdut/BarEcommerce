@@ -37,17 +37,11 @@ else
   echo "Helm is already installed."
 fi
 
-# Install Terraform if not installed
-if ! command_exists terraform; then
-  echo "Terraform not found. Installing Terraform..."
-  brew install terraform
-else
-  echo "Terraform is already installed."
-fi
 
 #Edit etc/hosts for local connection to the app
 echo "127.0.0.1 customer-facing-web-server.local" | sudo tee -a /etc/hosts
 echo "127.0.0.1 customer-management-api.local" | sudo tee -a /etc/hosts
+echo "127.0.0.1 customer-ui.local" | sudo tee -a /etc/hosts
 
 echo "Hosts file updated."
 

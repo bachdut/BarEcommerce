@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+  labels:
+    app: api-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+      - name: api-gateway
+        image: kong:2.5
+        env:
+        - name: KONG_DATABASE
+          value: "off"
+        - name: KONG_DECLARATIVE_CONFIG
+          value: /config/kong.yml
+        - name: KONG_PROXY_ACCESS_LOG
+          value: /dev/stdout
+        - name: KONG_ADMIN_ACCESS_LOG
+          value: /dev/stdout
+        - name: KONG_PROXY_ERROR_LOG
+          value: /dev/stderr
+        - name: KONG_ADMIN_ERROR_LOG
+          value: /dev/stderr
+        - name: KONG_ADMIN_LISTEN
+          value: "0.0.0.0:8001, 0.0.0.0:8444 ssl"
+        volumeMounts:
+        - name: kong-config-volume
+          mountPath: /config
+        ports:
+        - name: proxy
+          containerPort: 8000
+        - name: proxy-ssl
+          containerPort: 8443
+        - name: admin
+          containerPort: 8001
+        - name: admin-ssl
+          containerPort: 8444
+        readinessProbe:
+          httpGet:
+            path: /status
+            port: 8001
+          initialDelaySeconds: 10
+          periodSeconds: 5
+      volumes:
+      - name: kong-config-volume
+        configMap:
+          name: apigateway-config
