@@ -83,11 +83,15 @@ Before you begin, ensure you have the following installed on your MacBook:
    bash ./shutdown_application.sh
 
 
-9. **Structure Workflow**:
+9. **App Structure Workflow**:
     ![diagram (1)](https://github.com/user-attachments/assets/aa9e1f63-8bf2-4edb-88a1-642d00b40a6a)
 
+10. **Microservices Diagram**:
+
+ ![WhatsApp Image 2024-07-17 at 13 30 19](https://github.com/user-attachments/assets/a9b738c3-1bef-46a8-af33-a73fb52bf8b1)
 
 
+	
 
 
 **Have fun, Bar.**
