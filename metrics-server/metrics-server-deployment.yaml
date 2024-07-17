@@ -29,11 +29,11 @@ spec:
           protocol: TCP
         resources:
           requests:
-            cpu: 40m
-            memory: 60Mi
+            cpu: 100m
+            memory: 200Mi
           limits:
-            cpu: 40m
-            memory: 60Mi
+            cpu: 100m
+            memory: 200Mi
         livenessProbe:
           httpGet:
             path: /livez
