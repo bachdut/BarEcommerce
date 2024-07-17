@@ -20,7 +20,7 @@ consumer = KafkaConsumer(
     group_id='purchase-group',
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
 )
-
+# this function consumes the messages from the Kafka topic 'purchases' and stores them in the MongoDB collection 'purchases'
 def consume_purchases():
     for message in consumer:
         purchase = message.value
@@ -28,10 +28,12 @@ def consume_purchases():
 
 threading.Thread(target=consume_purchases, daemon=True).start()
 
+
 @app.route('/')
 def index():
     return "Welcome to the Customer Management API"
 
+# this route is used to get all the purchases made by the users from the mongo database
 @app.route('/purchases', methods=['GET'])
 def get_purchases():
     purchases = mongo.db.purchases.find()
@@ -45,6 +47,7 @@ def get_purchases():
         })
     return jsonify(result)
 
+# this route is used to add a purchase to the mongo database
 @app.route('/purchase', methods=['POST'])
 def add_purchase():
     purchase = request.json

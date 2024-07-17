@@ -15,6 +15,7 @@ producer = KafkaProducer(bootstrap_servers='kafka:9092',
 def index():
     return "Welcome to the Customer Facing Web Server"
 
+# This route is used to send a purchase request to the Kafka topic 'purchases'
 @app.route('/buy', methods=['POST'])
 def buy():
     data = request.json
@@ -22,6 +23,7 @@ def buy():
     producer.flush()
     return jsonify({'message': 'Purchase request sent'}), 200
 
+# this route is used to get all the purchases made by the users
 @app.route('/getAllUserBuys', methods=['GET'])
 def get_all_user_buys():
     response = requests.get('http://customer-management-api:3000/purchases')
