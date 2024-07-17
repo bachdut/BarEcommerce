@@ -1,4 +1,4 @@
-# Application Setup Guide
+# Application Setup Guide, And Structure workflow:
 
 This guide will walk you through the process of setting up and running the application on a local Machine. Please follow the steps carefully to ensure a smooth setup.
 
@@ -53,7 +53,12 @@ Before you begin, ensure you have the following installed on your MacBook:
    kubectl port-forward service/customer-management-api 8081:3000
    kubectl port-forward service/customer-facing-web-server 8080:3000
    kubectl port-forward service/customer-ui 8082:80
-
+   ```
+	
+   Or you can use the script port_forwarder.sh:
+   ```sh
+   chmod +x ./port_forwarder.sh
+   ./port_forwarder.sh
 
 5. **Access the Application**:
    Once the application is up and running, you can access it in your web browser at:
@@ -78,4 +83,11 @@ Before you begin, ensure you have the following installed on your MacBook:
    bash ./shutdown_application.sh
 
 
-Thank you for using my application!
+9. **Structure Workflow**:
+    ![diagram (1)](https://github.com/user-attachments/assets/aa9e1f63-8bf2-4edb-88a1-642d00b40a6a)
+
+
+
+
+
+**Have fun, Bar.**
