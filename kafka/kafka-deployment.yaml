@@ -26,3 +26,11 @@ spec:
           value: "9092"
         ports:
         - containerPort: 9092
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "echo stat | nc localhost 9092"]
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
